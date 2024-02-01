@@ -1,13 +1,11 @@
-const React = require('react');
-const Layout = require('./Layout');
-const ThemeItem = require('./ThemeItem');
+const React = require("react");
+const Layout = require("./Layout");
+const ThemeItem = require("./ThemeItem");
 
-function ThemeListPage() {
+function ThemeListPage({ user }) {
   return (
-    <Layout>
-      <ThemeItem>
-        
-      </ThemeItem>
+    <Layout user={user}>
+      <ThemeItem></ThemeItem>
     </Layout>
   );
 }

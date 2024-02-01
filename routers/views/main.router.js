@@ -1,7 +1,5 @@
-const router = require('express').Router();
+const router = require("express").Router();
 const MainForm = require("../../components/MainForm");
-
-
 
 router.get("/", async (req, res) => {
   try {

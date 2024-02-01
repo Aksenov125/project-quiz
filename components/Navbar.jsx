@@ -1,6 +1,7 @@
-const React = require('react');
+const React = require("react");
 
-function Navbar() {
+function Navbar({ user }) {
+  console.log(user, "123123123");
   return (
     <nav>
       <div className="nav-wrapper">
@@ -14,6 +15,11 @@ function Navbar() {
           <li>
             <a href="badges.html">Выход</a>
           </li>
+          {user && (
+            <li>
+              <a href="badges.html">{user.name}</a>
+            </li>
+          )}
         </ul>
       </div>
     </nav>
