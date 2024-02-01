@@ -9,7 +9,7 @@ function Navbar() {
         </a>
         <ul id="nav-mobile" className="left hide-on-med-and-down">
           <li>
-            <a href="sass.html">Темы</a>
+            <a href="/themes">Темы</a>
           </li>
           <li>
             <a href="badges.html">Выход</a>

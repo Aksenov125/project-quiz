@@ -2,7 +2,8 @@ const ThemeListPage = require('../../components/ThemeListPage');
 const router = require('express').Router();
 const { Theme } = require('../../db/models');
 
-router.get('/themes', async (req, res) => {
+
+router.get('/', async (req, res) => {
   try {
     const themes = await Theme.findAll();
     const html = renderComponent(ThemeListPage, { title: 'Themes', themes });
@@ -11,5 +12,6 @@ router.get('/themes', async (req, res) => {
     res.json(message);
   }
 });
+
 
 module.exports = router;

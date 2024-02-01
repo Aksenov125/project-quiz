@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-// const indexRouter = require('./routes/index.routes');
+const indexRouter = require('./routers/index.router');
 const ssr = require('./middleware/ssr');
 // const getUser = require('./middleware/getUser');
 
@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(ssr);
 // app.use(getUser);
 
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 
 const PORT = 4000;
 
