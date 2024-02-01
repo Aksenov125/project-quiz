@@ -6,7 +6,7 @@ function ThemeListPage({title, themes}) {
   return (
     <Layout title={title}>
       {themes.map(theme => (
-        <ThemeListPage key={theme.id} theme={theme}/>
+        <ThemeItem key={theme.id} theme={theme}/>
       )) }
     </Layout>
   );
