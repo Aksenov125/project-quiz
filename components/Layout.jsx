@@ -1,19 +1,15 @@
-const React = require('react');
-const Navbar = require('./Navbar');
+const React = require("react");
+const Navbar = require("./Navbar");
 
-module.exports = function Layout({ title, children }) {
+module.exports = function Layout({ title, children, user }) {
   return (
     <html lang="en">
       <head>
         <title>{title}</title>
         <link rel="stylesheet" href="/styles/materialize.css" />
-        <link href="/styles/style.css" rel="stylesheet"></link>
-        {/* <script defer src="/scripts/add.js" />
-        <script defer src="/scripts/delete.js" />
-        <script defer src="/scripts/update.js" /> */}
       </head>
       <body>
-        <Navbar></Navbar>
+        <Navbar user={user}></Navbar>
         {children}
       </body>
     </html>
