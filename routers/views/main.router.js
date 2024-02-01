@@ -1,7 +1,7 @@
-const express = require("express");
+const router = require('express').Router();
 const MainForm = require("../../components/MainForm");
 
-const router = express.Router();
+
 
 router.get("/", async (req, res) => {
   try {
