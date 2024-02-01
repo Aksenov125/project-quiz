@@ -1,12 +1,12 @@
-const ThemeListPage = require("../../components/ThemeListPage");
-const router = require("express").Router();
+const ThemeListPage = require('../../components/ThemeListPage');
+const router = require('express').Router();
+const { Theme } = require('../../db/models');
 
-router.get("/", (req, res) => {
+
+router.get('/', async (req, res) => {
   try {
-    const html = res.renderComponent(ThemeListPage, {
-      title: "Themes",
-      user: res.app.locals.user,
-    });
+    const themes = await Theme.findAll();
+    const html = renderComponent(ThemeListPage, { title: 'Themes', themes, user: res.app.locals.user, });
     res.send(html);
   } catch ({ message }) {
     res.json(message);
