@@ -1,4 +1,5 @@
-const React = require("react");
+const React = require('react');
+const Navbar = require('./Navbar');
 
 module.exports = function Layout({ title, children }) {
   return (
@@ -11,7 +12,10 @@ module.exports = function Layout({ title, children }) {
         <script defer src="/scripts/delete.js" />
         <script defer src="/scripts/update.js" /> */}
       </head>
-      <body>{children}</body>
+      <body>
+        <Navbar></Navbar>
+        {children}
+      </body>
     </html>
   );
 };
