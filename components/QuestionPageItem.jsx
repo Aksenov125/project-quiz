@@ -1,6 +1,5 @@
 const React = require("react");
 
-
 function QuestionPageItem({ question, theme }) {
   return (
     <>
@@ -16,7 +15,11 @@ function QuestionPageItem({ question, theme }) {
             </div>
             <div className="card-action"></div>
             <div className="row">
-              <form className="col s12 questionForm" data-id={question.id}>
+              <form
+                className="col s12 questionForm"
+                data-id={question.id}
+                data-idt={theme.id}
+              >
                 <div className="row">
                   <div className="input-field col s12">
                     <input
@@ -26,7 +29,10 @@ function QuestionPageItem({ question, theme }) {
                       className="validate"
                       placeholder="Ваш ответ"
                     />
-                    <button type="submit" className="btn waves-effect waves-teal">
+                    <button
+                      type="submit"
+                      className="btn waves-effect waves-teal"
+                    >
                       Ответить
                     </button>
                   </div>
@@ -37,11 +43,14 @@ function QuestionPageItem({ question, theme }) {
           </div>
         </div>
       </div>
-      <a class="beautiful-button" href={`/themes/${theme.id}/${question.id + 1}`}>Следущий вопрос<i class="material-icons right"></i> </a>
+      <a
+        class="beautiful-button"
+        href={`/themes/${theme.id}/${question.id + 1}`}
+      >
+        Следущий вопрос<i class="material-icons right"></i>{" "}
+      </a>
     </>
   );
 }
-
-
 
 module.exports = QuestionPageItem;

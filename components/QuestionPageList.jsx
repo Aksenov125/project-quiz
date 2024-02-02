@@ -5,7 +5,7 @@ const QuestionPageItem = require("./QuestionPageItem");
 function QuestionPageList({question,title, theme, user}) {  
   return (
     <Layout title={title} user={user}>
-      <div className="">
+      <div className="dvigat">
       <QuestionPageItem question={question} theme={theme} />
       </div>
     </Layout>

@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 router.get("/:themeId/:questionId", async (req, res) => {
   try {
     const { themeId, questionId } = req.params;
-    console.log(req.params,'pppppp')
+    // console.log(req.params,'pppppp')
     let questionTrue
     if (+questionId === 0) {
       questionTrue = await Question.findOne({ where: { theme_id:themeId } });
@@ -28,7 +28,7 @@ router.get("/:themeId/:questionId", async (req, res) => {
       questionTrue = await Question.findOne({
         where: { id: questionId, theme_id: themeId },
       });
-      console.log(questionTrue,'qqqqq')
+      // console.log(questionTrue,'qqqqq')
     }
 
 
@@ -51,24 +51,23 @@ router.get("/:themeId/:questionId", async (req, res) => {
 router.post("/:themeId/:questionId", async (req, res) => {
   try {
     const { id, answer } = req.body;
-    const { themeId, questionId } = req.params;
-
+    console.log(req.params, '---------------------------');
+    const { themeId } = req.params;
+console.log(id, answer, themeId);
     const user = await User.findOne({ where: { id: res.app.locals.user.id } });
-    let questionTrue;
- 
-    questionTrue = await Question.findOne({ where: { id, themeId } });
-
+ console.log(user);
+   const questionTrue = await Question.findOne({ where: { id: themeId } });
     if (questionTrue.answer === answer) {
       user.score += 10;
       user.save();
       res.app.locals.user.score += 10;
-      res.json({ message: "ты молодец" });
+      res.json({ message: "Молодец. Нраица!" });
     } else {
       user.score -= 10;
       user.save();
       res.app.locals.user.score -= 10;
       res.json({
-        message: `Ответ не верный, правильный овтет был ${questionTrue.answer}`,
+        message: `Не нраица не молодец. Правильный ответ ${questionTrue.answer}`,
       });
     }
   } catch ({ message }) {
