@@ -16,14 +16,15 @@ function QuestionPageItem({question, theme}) {
               
             </div>
             <div class="row">
-    <form class="col s12">
+    <form class="col s12 questionForm" data-id={question.id} >
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="text" class="validate" placeholder='Ваш ответ'/>
-          <a class="waves-effect waves-light btn">Ответить</a>
+          <input id="email" type="text" name='answer' class="validate" placeholder='Ваш ответ'/>
+          <button type='submit' class="waves-effect waves-light btn">Ответить</button>
         </div>
       </div>
     </form>
+    <div className='text-answer'></div>
   </div>
             
           </div>
