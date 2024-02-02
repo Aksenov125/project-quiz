@@ -23,7 +23,7 @@ router.get("/:themeId/:questionId", async (req, res) => {
     const theme = await Theme.findOne({ where: { id: themeId } });
     const [question] = await Question.findAll({ where: { id: questionId } });
     const html = res.renderComponent(QuestionPageList, {
-      title: "123",
+      title: "Игра",
       question,
       theme,
     });
@@ -36,10 +36,11 @@ router.get("/:themeId/:questionId", async (req, res) => {
 router.post("/:themeId/:questionId", async (req, res) => {
   try {
     const { id, answer } = req.body;
+
     const user = await User.findOne({where:{id: res.app.locals.user.id}})
     const questionTrue = await Question.findOne({ where: { id } });
     if(questionTrue.answer === answer){
-      user.score += 10
+      user.score += 10 
       user.save()
       res.app.locals.user.score += 10
       res.json({message : 'ты молодец'});
@@ -49,9 +50,6 @@ router.post("/:themeId/:questionId", async (req, res) => {
       res.app.locals.user.score -= 10
       res.json({message : `Ответ не верный, правильный овтет был ${questionTrue.answer}`});
     }
-
-
-
     res.json();
   } catch ({ message }) {
     res.json(message);

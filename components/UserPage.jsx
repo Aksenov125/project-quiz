@@ -2,7 +2,6 @@ const React = require('react');
 const Layout = require('./Layout');
 
 function UserPage({ title, user }) {
-  console.log(user);
   return (
     <Layout title={title} user={user}>
       <div className="row">

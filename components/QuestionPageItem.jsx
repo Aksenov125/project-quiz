@@ -1,4 +1,4 @@
-const React = require('react');
+const React = require("react");
 
 function QuestionPageItem({ question, theme }) {
   return (
@@ -13,20 +13,24 @@ function QuestionPageItem({ question, theme }) {
               <p>{question.title}</p>
             </div>
             <div className="card-action"></div>
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s12">
+            <div className="row">
+              <form className="col s12 questionForm" data-id={question.id}>
+                <div className="row">
+                  <div className="input-field col s12">
                     <input
                       id="email"
                       type="text"
-                      class="validate"
+                      name="answer"
+                      className="validate"
                       placeholder="Ваш ответ"
                     />
-                    <a class="waves-effect waves-light btn">Ответить</a>
+                    <button type="submit" className="waves-effect waves-light btn">
+                      Ответить
+                    </button>
                   </div>
                 </div>
               </form>
+              <div className="text-answer"></div>
             </div>
           </div>
         </div>
