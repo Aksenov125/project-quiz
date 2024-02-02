@@ -1,6 +1,7 @@
-const ThemeListPage = require('../../components/ThemeListPage');
 const router = require('express').Router();
-const { Theme } = require('../../db/models');
+const QuestionPageList = require('../../components/QuestionPageList');
+const ThemeListPage = require('../../components/ThemeListPage');
+const { Theme, Question } = require('../../db/models');
 
 
 router.get('/', async (req, res) => {
@@ -12,5 +13,18 @@ router.get('/', async (req, res) => {
     res.json(message);
   }
 });
+
+router.get('/:themeId/', async(req, res)=>{
+try {
+  console.log(res);
+  const {themeId} = req.params
+  const questions = await Question.findAll({where:{theme_id: themeId}})
+  const html = res.renderComponent(QuestionPageList, {title: "123",question:questions[0]})
+  res.send(html)
+} catch ({message}) {
+  res.json(message)
+  
+}
+})
 
 module.exports = router;
