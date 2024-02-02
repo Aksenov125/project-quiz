@@ -1,7 +1,8 @@
 const React = require('react')
 
-function QuestionPageItem({question}) {
+function QuestionPageItem({question, theme}) {
     return (
+      <>
         <div className="row">
         <div className="col s12 m7">
           <div className="card">
@@ -12,11 +13,24 @@ function QuestionPageItem({question}) {
               <p>{question.title}</p>
             </div>
             <div className="card-action">
-              <button data-id={question.id} className='new-question' href="#">This is a link</button>
+              
             </div>
+            <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="text" class="validate" placeholder='Ваш ответ'/>
+          <a class="waves-effect waves-light btn">Ответить</a>
+        </div>
+      </div>
+    </form>
+  </div>
+            
           </div>
         </div>
       </div>
+      <a href={`/themes/${theme.id}/${question.id + 1}`}> Next </a>
+      </>
     )
     
 }
