@@ -7,6 +7,7 @@ module.exports = function Layout({ title, children, user }) {
       <head>
         <title>{title}</title>
         <link rel="stylesheet" href="/styles/materialize.css" />
+        <link rel="stylesheet" href="/styles/custStyles.css" />
         <script defer src="/scripts/question.js"></script>
       </head>
       <body>

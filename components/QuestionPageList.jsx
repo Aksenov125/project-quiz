@@ -2,10 +2,9 @@ const React = require("react");
 const Layout = require("./Layout");
 const QuestionPageItem = require("./QuestionPageItem");
 
-function QuestionPageList({question,title, theme}) {
-  console.log(question);
+function QuestionPageList({question,title, theme, user}) {  
   return (
-    <Layout title={title}>
+    <Layout title={title} user={user}>
       <div className="">
       <QuestionPageItem question={question} theme={theme} />
       </div>

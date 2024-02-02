@@ -16,7 +16,7 @@ module.exports = function MainForm({ title, user }) {
             />
 
             <button type="submit" className="waves-effect waves-light btn">
-              Add
+              Войти
             </button>
           </div>
         </div>

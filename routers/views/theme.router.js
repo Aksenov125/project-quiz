@@ -36,7 +36,6 @@ router.get("/:themeId/:questionId", async (req, res) => {
 router.post("/:themeId/:questionId", async (req, res) => {
   try {
     const { id, answer } = req.body;
-
     const user = await User.findOne({where:{id: res.app.locals.user.id}})
     const questionTrue = await Question.findOne({ where: { id } });
     if(questionTrue.answer === answer){
