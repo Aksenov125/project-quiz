@@ -11,7 +11,7 @@ function ThemeItem({ theme }) {
           </div>
           <div className="card-content"></div>
           <div className="card-action">
-            <a href={`/themes/${theme.id}`}>ПОГНАЛИ!!!</a>
+            <a href={`/themes/${theme.id}/1`}>ПОГНАЛИ!!!</a>
           </div>
         </div>
       </div>

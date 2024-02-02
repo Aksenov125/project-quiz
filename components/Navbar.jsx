@@ -15,7 +15,7 @@ function Navbar({ user }) {
           </li>
           {user && (
             <li>
-              <a href="badges.html">{user.name}</a>
+              <a href="/user">Привет, {user.name}! У тебя {user.score} очков. Попробуй заработать больше.</a>
             </li>
           )}
         </ul>
