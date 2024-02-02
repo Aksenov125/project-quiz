@@ -12,7 +12,7 @@ function UserPage({ title, user }) {
               <span className="card-content"></span>
             </div>
             <div className="card-title">{user.name}</div>
-            <div className="card-action">Як ше маш!? Моя звать {user.name}. Я вас люблю! Я люблю квиз! Нраица!</div>
+            <div className="card-action colorrrr">Як ше маш!? Моя звать {user.name}. Я вас люблю! Я люблю квиз! Нраица!</div>
           </div>
         </div>
       </div>

@@ -14,7 +14,6 @@ module.exports = function MainForm({ title, user }) {
               type="text"
               className="validate"
             />
-
             <button type="submit" className="waves-effect waves-light btn">
               Войти
             </button>
