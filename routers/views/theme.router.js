@@ -14,12 +14,13 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:themeId/', async(req, res)=>{
+router.get('/:themeId/:questionId', async(req, res)=>{
 try {
   console.log(res);
-  const {themeId} = req.params
-  const questions = await Question.findAll({where:{theme_id: themeId}})
-  const html = res.renderComponent(QuestionPageList, {title: "123",question:questions[0]})
+  const {themeId, questionId} = req.params
+  const theme = await Theme.findOne({where:{id: themeId}})
+  const [question] = await Question.findAll({where:{id: questionId}})
+  const html = res.renderComponent(QuestionPageList, {title: "123",question, theme})
   res.send(html)
 } catch ({message}) {
   res.json(message)
