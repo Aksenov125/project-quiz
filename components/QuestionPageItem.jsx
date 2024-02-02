@@ -24,7 +24,7 @@ function QuestionPageItem({ question, theme }) {
                       className="validate"
                       placeholder="Ваш ответ"
                     />
-                    <button type="submit" className="waves-effect waves-light btn">
+                    <button type="submit" className="btn waves-effect waves-teal">
                       Ответить
                     </button>
                   </div>
@@ -35,9 +35,11 @@ function QuestionPageItem({ question, theme }) {
           </div>
         </div>
       </div>
-      <a href={`/themes/${theme.id}/${question.id + 1}`}> Next </a>
+      <a class="beautiful-button" href={`/themes/${theme.id}/${question.id + 1}`}>Следущий вопрос<i class="material-icons right"></i> </a>
     </>
   );
 }
+
+
 
 module.exports = QuestionPageItem;
