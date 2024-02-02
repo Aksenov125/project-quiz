@@ -4,7 +4,7 @@ function Navbar({ user }) {
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="#" className="brand-logo right">
+        <a href="/" className="brand-logo right">
           Quiz
         </a>
         <ul id="nav-mobile" className="left hide-on-med-and-down">
@@ -12,7 +12,6 @@ function Navbar({ user }) {
             <a href="/themes">Темы</a>
           </li>
           <li>
-            <a href="badges.html">Выход</a>
           </li>
           {user && (
             <li>
