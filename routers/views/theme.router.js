@@ -20,14 +20,29 @@ router.get("/", async (req, res) => {
 router.get("/:themeId/:questionId", async (req, res) => {
   try {
     const { themeId, questionId } = req.params;
+    console.log(req.params,'pppppp')
+    let questionTrue
+    if (+questionId === 0) {
+      questionTrue = await Question.findOne({ where: { theme_id:themeId } });
+    }else{
+      questionTrue = await Question.findOne({
+        where: { id: questionId, theme_id: themeId },
+      });
+      console.log(questionTrue,'qqqqq')
+    }
+
+
     const theme = await Theme.findOne({ where: { id: themeId } });
-    const [question] = await Question.findAll({ where: { id: questionId } });
-    const html = res.renderComponent(QuestionPageList, {
-      title: "Игра",
-      question,
-      theme,
-    });
-    res.send(html);
+    if (questionTrue) {
+      const html = res.renderComponent(QuestionPageList, {
+        title: "Игра",
+        question:questionTrue,
+        theme,
+      });
+      res.send(html);
+    } else {
+      res.redirect("/themes");
+    }
   } catch ({ message }) {
     res.json(message);
   }
@@ -36,20 +51,26 @@ router.get("/:themeId/:questionId", async (req, res) => {
 router.post("/:themeId/:questionId", async (req, res) => {
   try {
     const { id, answer } = req.body;
-    const user = await User.findOne({where:{id: res.app.locals.user.id}})
-    const questionTrue = await Question.findOne({ where: { id } });
-    if(questionTrue.answer === answer){
-      user.score += 10 
-      user.save()
-      res.app.locals.user.score += 10
-      res.json({message : 'ты молодец'});
-    }else{
-      user.score -= 10
-      user.save()
-      res.app.locals.user.score -= 10
-      res.json({message : `Ответ не верный, правильный овтет был ${questionTrue.answer}`});
+    const { themeId, questionId } = req.params;
+
+    const user = await User.findOne({ where: { id: res.app.locals.user.id } });
+    let questionTrue;
+ 
+    questionTrue = await Question.findOne({ where: { id, themeId } });
+
+    if (questionTrue.answer === answer) {
+      user.score += 10;
+      user.save();
+      res.app.locals.user.score += 10;
+      res.json({ message: "ты молодец" });
+    } else {
+      user.score -= 10;
+      user.save();
+      res.app.locals.user.score -= 10;
+      res.json({
+        message: `Ответ не верный, правильный овтет был ${questionTrue.answer}`,
+      });
     }
-    res.json();
   } catch ({ message }) {
     res.json(message);
   }
