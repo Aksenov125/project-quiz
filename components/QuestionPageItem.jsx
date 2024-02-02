@@ -8,6 +8,7 @@ function QuestionPageItem({ question, theme }) {
         <div className="col s12 m7">
           <div className="card">
             <div className="card-image">
+              <img src={question.img} alt="" />
               <span className="card-title"></span>
             </div>
             <div className="card-content">
